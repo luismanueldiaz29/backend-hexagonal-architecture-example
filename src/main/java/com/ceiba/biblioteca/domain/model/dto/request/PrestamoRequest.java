@@ -1,11 +1,11 @@
-package com.ceiba.biblioteca.dto;
+package com.ceiba.biblioteca.domain.model.dto.request;
 
-public class SolicitudPrestarLibro {
+public class PrestamoRequest {
     private String isbn;
     private String identificacionUsuario;
     private int tipoUsuario;
 
-    public SolicitudPrestarLibro() {
+    public PrestamoRequest() {
     }
 
     public String getIsbn() {

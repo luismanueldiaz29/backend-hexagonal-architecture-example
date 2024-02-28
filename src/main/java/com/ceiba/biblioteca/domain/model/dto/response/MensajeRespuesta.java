@@ -1,4 +1,4 @@
-package com.ceiba.biblioteca.dto;
+package com.ceiba.biblioteca.domain.model.dto.response;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

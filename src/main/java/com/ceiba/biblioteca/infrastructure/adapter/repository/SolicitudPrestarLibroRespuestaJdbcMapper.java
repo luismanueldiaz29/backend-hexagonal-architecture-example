@@ -1,20 +1,18 @@
-package com.ceiba.biblioteca.Repositorios;
+package com.ceiba.biblioteca.infrastructure.adapter.repository;
 
-import com.ceiba.biblioteca.dto.SolicitudPrestarLibroRespuesta;
+import com.ceiba.biblioteca.infrastructure.adapter.entity.PrestamoEntity;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
 
 
-public class SolicitudPrestarLibroRespuestaMapper implements RowMapper<SolicitudPrestarLibroRespuesta> {
+public class SolicitudPrestarLibroRespuestaJdbcMapper implements RowMapper<PrestamoEntity> {
 
 
     @Override
-    public SolicitudPrestarLibroRespuesta mapRow(ResultSet rs, int rowNum) throws SQLException {
-        SolicitudPrestarLibroRespuesta solicitudPrestarLibroRespuesta = new SolicitudPrestarLibroRespuesta();
+    public PrestamoEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
+        PrestamoEntity solicitudPrestarLibroRespuesta = new PrestamoEntity();
         solicitudPrestarLibroRespuesta.setId(rs.getInt("id"));
         solicitudPrestarLibroRespuesta.setIsbn(rs.getString("isbn"));
         solicitudPrestarLibroRespuesta.setIdentificacionUsuario(rs.getString("identificacion_usuario"));
