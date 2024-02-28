@@ -1,7 +1,6 @@
 package com.ceiba.biblioteca.infrastructure.adapter.repository;
 
 import com.ceiba.biblioteca.infrastructure.adapter.entity.PrestamoEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +10,11 @@ import java.util.Optional;
 @Service
 public class PrestamoRepositorioImpl implements PrestamoRepositorio{
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public PrestamoRepositorioImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public int guardar(PrestamoEntity prestamoEntity) {

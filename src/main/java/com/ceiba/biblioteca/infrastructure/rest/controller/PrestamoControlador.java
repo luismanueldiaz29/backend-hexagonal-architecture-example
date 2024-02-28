@@ -5,7 +5,6 @@ import com.ceiba.biblioteca.domain.model.dto.response.MensajeRespuesta;
 import com.ceiba.biblioteca.domain.model.dto.request.PrestamoRequest;
 import com.ceiba.biblioteca.domain.model.dto.response.PrestamoRespuesta;
 import com.ceiba.biblioteca.application.usecases.PrestamoServicio;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +14,13 @@ import java.util.Optional;
 @RequestMapping("/prestamo")
 public class PrestamoControlador {
 
-    @Autowired
-    private PrestamoServicio prestamoServicio;
+    private final PrestamoServicio prestamoServicio;
+
+    public PrestamoControlador(
+            PrestamoServicio prestamoServicio
+    ) {
+        this.prestamoServicio = prestamoServicio;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<PrestamoRespuesta> buscarPorId(@PathVariable("id") int id){
